@@ -1,0 +1,104 @@
+<section class="vh-100" style="background-color: #eee">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        {{ loginForm.value | json }}
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                  <h4>Login Form</h4>
+                  <br />
+                  <div class="alert alert-danger" role="alert" *ngIf="error">
+                    Invalid Credentials. Please try again.
+                  </div>
+
+                  <div class="form-group m-4">
+                    <label>Username</label>
+                    <input
+                      required
+                      appEmailvalidator
+                      #username="ngModel"
+                      type="text"
+                      class="form-control"
+                      name="username"
+                      [(ngModel)]="userModel.username"
+                      [class.is-invalid]="
+                        (username.touched || username.dirty) && username.invalid
+                      "
+                    />
+                    <span class="invalid-feedback">
+                      <span *ngIf="username.hasError('required')">
+                        Username is required field
+                      </span>
+                      <span *ngIf="username.hasError('emailvalidator')">
+                        Please provide a valid email address
+                      </span>
+                    </span>
+                  </div>
+
+                  <div class="form-group m-4">
+                    <label>Password</label>
+                    <input
+                      required
+                      minlength="8"
+                      maxlength="20"
+                      appPasswordvalidator
+                      #password="ngModel"
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="userModel.password"
+                      [class.is-invalid]="
+                        (password.touched || password.dirty) && password.invalid
+                      "
+                    />
+                    <span class="invalid-feedback">
+                      <span *ngIf="password.hasError('required')">
+                        Password is required field.
+                      </span>
+                      <span *ngIf="password.hasError('minlength')">
+                        Password should contains at least 8 characters.
+                      </span>
+                      <span *ngIf="password.hasError('maxlength')">
+                        Password should not contain more than 20 characters.
+                      </span>
+                      <span *ngIf="password.hasError('capitalCase')">
+                        Password should contain at least one uppercase
+                        character.
+                      </span>
+                      <span *ngIf="password.hasError('smallCase')">
+                        Password should contain at least one lowercase
+                        character.
+                      </span>
+                      <span *ngIf="password.hasError('specialCase')">
+                        Password should contain at least one special character.
+                      </span>
+                      <span *ngIf="password.hasError('whiteSpace')">
+                        Password should not contain at white space character.
+                      </span>
+                    </span>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-md m-4 mt-2">
+                    Login
+                  </button>
+                </form>
+              </div>
+              <div
+                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid"
+                  alt="Sample image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<section class="vh-100" style="background-color: #eee">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px; height: 30rem">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <h5 class="row justify-content-center">
+                  Hello Admin. Welcome to the home page.
+                </h5>
+                <h6 class="row justify-content-center">Select an option</h6>
+                <br />
+                <div class="row justify-content-center">
+                  <button
+                    class="btn btn-info"
+                    style="margin-bottom: 6%; width: 60%"
+                    [routerLink]="['/upload']"
+                  >
+                    UPLOAD PATIENT DATA
+                  </button>
+
+                  <button
+                    class="btn btn-warning"
+                    style="margin-bottom: 6%; width: 60%"
+                    [routerLink]="['/editPatient']"
+                  >
+                    MODIFY DATA
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    style="margin-bottom: 6%; width: 60%"
+                    [routerLink]="['/patient']"
+                  >
+                    PROCESS DATA
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

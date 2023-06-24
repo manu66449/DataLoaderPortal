@@ -1,0 +1,9 @@
+p {
+  background-color: darkcyan;
+  padding: 8px;
+  margin: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  color: cornsilk;
+}
