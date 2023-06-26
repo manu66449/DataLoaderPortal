@@ -11,14 +11,14 @@ import { LoginService } from '../service/login.service';
 })
 export class LoginComponent implements OnInit {
   public error: boolean = false;
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginSvc: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
 
   userModel = new User('', '');
 
   onSubmit() {
-    this.loginService.login(this.userModel)?.subscribe(
+    this.loginSvc.login(this.userModel)?.subscribe(
       (res) => {
         this.router.navigate(['/home']);
       },
